@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:tdd/core/usecases/usecase.dart';
+import '../../../../core/usecases/usecase.dart';
 
 import '../../../../core/error/failures.dart';
 import '../entities/number_trivia.dart';
