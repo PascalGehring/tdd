@@ -63,6 +63,8 @@ void main() {
         verify(mockInputConverter.stringToUnsignedInteger(tNumberString));
       },
     );
+
+    // Async UI Testing (Warning)
     test(
       'should emit [Error] when the input is invalid',
       () async {
@@ -71,7 +73,6 @@ void main() {
             .thenReturn(Left(InvalidInputFailure()));
         // assert later
         final expected = [
-          //Empty(),
           Error(message: INVALID_INPUT_FAILURE_MESSAGE),
         ];
         expectLater(bloc, emitsInOrder(expected));
@@ -103,7 +104,10 @@ void main() {
         when(mockGetConcreteNumberTrivia(any))
             .thenAnswer((_) async => Right(tNumberTrivia));
         // assert later
-        final expected = [Loading(), Loaded(trivia: tNumberTrivia)];
+        final expected = [
+          Loading(),
+          Loaded(trivia: tNumberTrivia),
+        ];
         expectLater(bloc, emitsInOrder(expected));
         // act
         bloc.add(GetTriviaForConcreteNumber(tNumberString));
